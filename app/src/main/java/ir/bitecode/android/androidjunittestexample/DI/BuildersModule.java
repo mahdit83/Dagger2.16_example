@@ -15,12 +15,8 @@ public abstract class BuildersModule {
     abstract MainActivity bindMainActivity();
 
     @ContributesAndroidInjector(modules = FragmentModule.class)
-    // or gain access to lobby activity dependencies from fragment via
-    // @ContributesAndroidInjector(modules = {LobbyFragmentModule.class, LobbyActivityModule.class})
     abstract MainFragment bindMainFragment();
 
     @ContributesAndroidInjector(modules = {FragmentModule.class , ActivityModule.class})
-    // or gain access to lobby activity dependencies from fragment via
-    // @ContributesAndroidInjector(modules = {LobbyFragmentModule.class, LobbyActivityModule.class})
     abstract SecondFragment bindSecondFragment();
 }

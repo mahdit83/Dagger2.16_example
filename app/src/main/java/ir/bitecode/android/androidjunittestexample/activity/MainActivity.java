@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         setContentView(R.layout.activity_main);
 
         initializeUi();
+
+        Log.i(BITECODE, "api:getData "+ activityApiService.getData().size());
     }
 
     @Override
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             @Override
             public void onClick(View v) {
                 authorizationManager.setUserName("User1:");
+                authorizationManager.setAuthorized(true);
                 addFragment(MainFragment.newInstance(new Bundle()));
             }
         });
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             @Override
             public void onClick(View v) {
                 authorizationManager.setUserName("User2:");
+                authorizationManager.setAuthorized(true);
                 addFragment(SecondFragment.newInstance(new Bundle()));
             }
         });
@@ -72,10 +76,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
     private void addFragment(Fragment fragment) {
         Log.i(BITECODE, "addFragment: "+authorizationManager.getUserName());
-        if(fragment instanceof MainFragment){
-            activityApiService.setAuthorizationManager(authorizationManager);
-        }
-        Log.i(BITECODE, "api:getData "+ activityApiService.getData().size());
+
+
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
 }

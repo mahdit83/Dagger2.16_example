@@ -22,7 +22,8 @@ public class ActivityApiService {
         return result;
     }
 
-    public void setAuthorizationManager(AuthorizationManager authorizationManager) {
+    public ActivityApiService(AuthorizationManager authorizationManager) {
         this.authorizationManager = authorizationManager;
     }
+
 }
