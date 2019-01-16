@@ -7,9 +7,10 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import ir.bitecode.android.androidjunittestexample.TestApplication;
+import ir.bitecode.android.androidjunittestexample.activity.ActivityComponent;
 import ir.bitecode.android.androidjunittestexample.managers.AuthorizationManager;
 
-@Module
+@Module(subcomponents = {ActivityComponent.class,})
 public class AppModule {
 
     @Provides
