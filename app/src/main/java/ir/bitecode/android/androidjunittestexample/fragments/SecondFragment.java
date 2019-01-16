@@ -49,17 +49,39 @@ public class SecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        activityApiService.getData();
         fragmentApiService.setAuthorizationManager(authorizationManager);
         TextView text = view.findViewById(R.id.text);
         String finalText ="";
+
+
+        /*
+        as you can see fragment scope api manager creates new but activity
+        scope is have same data in both fragment.
+         */
+        finalText = handleFragmentScopeApi(text, finalText);
+        handleActivityScopeApi(text, finalText);
+
+
+        return view;
+    }
+
+    private void handleActivityScopeApi(TextView text, String finalText) {
+        for (String value : activityApiService.getData()) {
+            finalText = finalText + "\n " + value;
+        }
+        text.setText(finalText);
+    }
+
+    private String handleFragmentScopeApi(TextView text, String finalText) {
         for (String value : fragmentApiService.getData()) {
             finalText = finalText +"\n"+ value;
         }
         text.setText(finalText);
 
+        finalText = finalText +"\n ________________";
+        text.setText(finalText);
 
-        return view;
+        return finalText;
     }
 
 

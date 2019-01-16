@@ -14,7 +14,7 @@ public class ActivityApiService {
         List<String> result = new ArrayList<>();
         if(authorizationManager.isAuthorized()){
             for (int i = 1; i < 10; i++) {
-                result.add(authorizationManager.getUserName()+"_"+i);
+                result.add(authorizationManager.getUserName()+"_activity_"+i);
 
             }
         }
