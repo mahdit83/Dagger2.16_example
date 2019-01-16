@@ -25,7 +25,7 @@ public abstract class BuildersModule {
                                                                                       .Builder
                                                                                       builder);
 
-    @ContributesAndroidInjector(modules = FragmentModule.class)
+    @ContributesAndroidInjector(modules = {FragmentModule.class, ActivityModule.class})
     abstract MainFragment bindMainFragment();
 
     @ContributesAndroidInjector(modules = {FragmentModule.class, ActivityModule.class})
