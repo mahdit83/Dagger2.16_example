@@ -7,28 +7,26 @@ import ir.bitecode.android.androidjunittestexample.managers.AuthorizationManager
 
 public class FragmentApiService {
 
-    int serviceNumber;
-    AuthorizationManager authorizationManager;
+    private AuthorizationManager authorizationManager;
+    private int serviceNumber;
 
     public FragmentApiService(int serviceNumber) {
         this.serviceNumber = serviceNumber;
     }
 
-    public List<String> getData(){
+    public List<String> getData() {
 
         List<String> result = new ArrayList<>();
-//        if(authorizationManager.isAuthorized()){
-            for (int i = 1; i < serviceNumber; i++) {
-                if(authorizationManager!=null){
-                    result.add(authorizationManager.getUserName()+"_"+i);
+        for (int i = 1; i < serviceNumber; i++) {
+            if (authorizationManager != null) {
+                result.add(authorizationManager.getUserName() + "_" + i);
 
-                }else{
-                    result.add("aaa_"+i);
-
-                }
+            } else {
+                result.add("null_authorizationManager_" + i);
 
             }
-//        }
+
+        }
 
         return result;
     }

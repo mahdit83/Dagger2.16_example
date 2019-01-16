@@ -54,10 +54,7 @@ public class SecondFragment extends Fragment {
         String finalText ="";
 
 
-        /*
-        as you can see fragment scope api manager creates new but activity
-        scope is have same data in both fragment.
-         */
+
         finalText = handleFragmentScopeApi(text, finalText);
         handleActivityScopeApi(text, finalText);
 
